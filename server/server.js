@@ -1,5 +1,5 @@
 const express = require('express');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
@@ -23,13 +23,13 @@ app.get('*.js', function (req, res, next) {
 const startApolloServer = async () => {
   await server.start();
   
-  app.use(helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'none'"],
-      fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-      styleSrc: ["'self'", 'https://fonts.googleapis.com'],
-    },
-  }));
+  // app.use(helmet.contentSecurityPolicy({
+  //   directives: {
+  //     defaultSrc: ["'none'"],
+  //     fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+  //     styleSrc: ["'self'", 'https://fonts.googleapis.com'],
+  //   },
+  // }));
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   
